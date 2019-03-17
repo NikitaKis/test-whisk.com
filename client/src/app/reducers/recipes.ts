@@ -34,11 +34,25 @@ export const recipeReducer: Reducer<IRecipesState, RecipesActions> = (state = in
         isFetching: false
       };
     }
+    case RecipesActionTypes.IS_FETCHING_SINGLE: {
+      return {
+        ...state,
+        details: {
+          ...state.details,
+          isFetching: true
+        }
+      };
+    }
     case RecipesActionTypes.GET_SINGLE: {
       return {
         ...state,
-        currentRecipe: action.recipe,
-        isFetching: false
+        details: {
+          byId: {
+            ...state.details.byId,
+            [action.item.id]: action.item
+          },
+          isFetching: false
+        }
       };
     }
   }

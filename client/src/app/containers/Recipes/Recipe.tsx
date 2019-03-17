@@ -11,7 +11,7 @@ const Recipe: React.FC<IProps> = ({ recipe }) => {
   if (!recipe) return null;
   return (
     <React.Fragment>
-      <h1>{recipe.content.name}</h1>
+      <h1>{recipe.name}</h1>
     </React.Fragment>
   );
 };

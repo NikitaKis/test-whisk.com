@@ -1,27 +1,26 @@
-export interface IRecipe {
-  content: {
-    id: string;
-    name: string;
-    description: string;
-    ingredients: Array<{ text: string }>;
-    images: Array<{
+export interface IRecipeDetails {
+  id: string;
+  name: string;
+  description: string;
+  ingredients: Array<{ text: string }>;
+  images: Array<{
+    url: string;
+    responsive: {
       url: string;
-      responsive: {
-        url: string;
-        width: number;
-        height: number;
-      };
-    }>;
-    author: {
-      name: string;
+      width: number;
+      height: number;
     };
-    language: string;
+  }>;
+  author: {
+    name: string;
   };
-}
-export interface IRecipeDetails extends IRecipe {
+  language: string;
   instructions?: {
     steps?: [];
   };
+}
+export interface IRecipe {
+  content: IRecipeDetails;
 }
 export type RecipeDetailsList = {
   [key: string]: IRecipeDetails;
@@ -29,7 +28,8 @@ export type RecipeDetailsList = {
 export enum RecipesActionTypes {
   GET_ALL = "RECIPES/GET_ALL",
   GET_SINGLE = "RECIPES/GET_SINGLE",
-  IS_FETCHING = "RECIPES/IS_FETCHING"
+  IS_FETCHING = "RECIPES/IS_FETCHING",
+  IS_FETCHING_SINGLE = "RECIPES/IS_FETCHING_SINGLE"
 }
 
 export interface IRecipesGetAllAction {
@@ -46,12 +46,20 @@ export interface IRecipesIsFetchingAction {
   type: RecipesActionTypes.IS_FETCHING;
 }
 
-export interface IRecipesGetSingleAction {
-  type: RecipesActionTypes.GET_SINGLE;
-  recipe: IRecipe;
+export interface IRecipesIsFetchingSingleAction {
+  type: RecipesActionTypes.IS_FETCHING_SINGLE;
 }
 
-export type RecipesActions = IRecipesGetAllAction | IRecipesGetSingleAction | IRecipesIsFetchingAction;
+export interface IRecipesGetSingleAction {
+  type: RecipesActionTypes.GET_SINGLE;
+  item: IRecipeDetails;
+}
+
+export type RecipesActions =
+  | IRecipesGetAllAction
+  | IRecipesGetSingleAction
+  | IRecipesIsFetchingAction
+  | IRecipesIsFetchingSingleAction;
 
 export interface IRecipesState {
   nextPage?: string | null;
