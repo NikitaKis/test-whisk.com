@@ -1,0 +1,20 @@
+service: ProxyServerForWhisk 
+custom: ${file(./var.yml)}
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-1
+  stage: dev
+  environment: ${self:custom.${opt:stage, self:provider.stage}}
+functions:
+  hello:
+    handler: handler.recipes_search
+    events:
+    - http:
+        path: recipes/search
+        method: get
+        cors: true
+profiles:
+  dev: Quicker-Serverless
+  prod: Quicker-Serverless
+  

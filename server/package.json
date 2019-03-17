@@ -1,0 +1,11 @@
+{
+  "name": "ProxyServerForWhisk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Nikita Kiselev",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}
