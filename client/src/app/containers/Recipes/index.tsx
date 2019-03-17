@@ -5,14 +5,15 @@ import { RouteComponentProps, withRouter } from "react-router";
 import { getRecipes } from "app/actions";
 import { IRootState } from "app/reducers";
 import { IRecipe } from "app/types/RecipeTypes";
-
 import { Header } from "app/components";
+import BtnWithLoader from "app/components/BtnWithLoader";
 import RecipesList from "./RecipesList";
 
 interface RecipesPageProps extends RouteComponentProps<void> {
   recipes: IRecipe[];
   isFetching: boolean;
   getRecipes: typeof getRecipes;
+  nextPage: string;
 }
 
 class RecipesPage extends React.Component<RecipesPageProps> {
@@ -21,15 +22,19 @@ class RecipesPage extends React.Component<RecipesPageProps> {
   }
 
   public componentDidMount() {
-    this.props.getRecipes("eyJpZCI6IjE3NjM0NmJhMDFjYmJkOTMzNjVkNGNlNGRhM2E3YjI5IiwiaW5kZXgiOjIzfQ");
+    this.props.getRecipes();
   }
-
+  handleShowMore = () => {
+    const { getRecipes, nextPage } = this.props;
+    getRecipes(nextPage);
+  };
   render() {
     const { recipes, isFetching } = this.props;
     return (
       <div className={style.app_container}>
         <Header />
-        <RecipesList recipes={recipes} isFetching={isFetching} />
+        <RecipesList recipes={recipes} />
+        <BtnWithLoader isFetching={isFetching} handleClick={this.handleShowMore}/>
       </div>
     );
   }
@@ -38,7 +43,8 @@ function mapStateToProps(state: IRootState) {
   const { recipes } = state;
   return {
     isFetching: recipes.isFetching,
-    recipes: recipes.items
+    recipes: recipes.items,
+    nextPage: recipes.nextPage
   };
 }
 const mapDispatchToProps = (dispatch: any) => {

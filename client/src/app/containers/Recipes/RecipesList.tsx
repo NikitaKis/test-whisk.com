@@ -1,6 +1,5 @@
 import * as React from "react";
 import { IRecipe } from "../../types/RecipeTypes";
-import { WithLoader } from "app/components/WithLoader";
 import * as style from "./style.css";
 import RecipesListItem from './RecipesListItem'
 
@@ -18,4 +17,4 @@ const RecipesList: React.FC<IProps> = props => {
   );
 };
 
-export default WithLoader(RecipesList);
+export default RecipesList;

@@ -9,11 +9,7 @@ export const WithLoader = <P extends object>(Component: React.ComponentType<P>):
   props: P & IProps
 ) =>
   props.isFetching ? (
-    <div className={style.loader_overlay}>
-      <div className={style.loader_circle_wrap}>
-        <div className={style.loader} />
-      </div>
-    </div>
+    <div className={style.loader} />
   ) : (
     <Component {...props} />
   );

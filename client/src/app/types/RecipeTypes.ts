@@ -16,7 +16,7 @@ export interface IRecipe {
       name: string;
     };
     language: string;
-  }
+  };
 }
 export interface IRecipeDetails extends IRecipe {
   instructions?: {
@@ -35,6 +35,12 @@ export enum RecipesActionTypes {
 export interface IRecipesGetAllAction {
   type: RecipesActionTypes.GET_ALL;
   items: IRecipe[];
+  paging: {
+    cursors?: {
+      after?: string;
+    };
+    total: number;
+  };
 }
 export interface IRecipesIsFetchingAction {
   type: RecipesActionTypes.IS_FETCHING;
@@ -48,17 +54,18 @@ export interface IRecipesGetSingleAction {
 export type RecipesActions = IRecipesGetAllAction | IRecipesGetSingleAction | IRecipesIsFetchingAction;
 
 export interface IRecipesState {
-  readonly details: {
+  nextPage?: string | null;
+  details: {
     isFetching: boolean;
     byId: RecipeDetailsList;
   };
-  readonly items: IRecipe[];
-  readonly isFetching: boolean;
+  items: IRecipe[];
+  isFetching: boolean;
 }
 export interface IRecipesPaging {
   cursors: {
-    after?: string,
-    before?: string
-  },
-  total: number
+    after?: string;
+    before?: string;
+  };
+  total: number;
 }

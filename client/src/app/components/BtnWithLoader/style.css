@@ -1,0 +1,22 @@
+.button {
+  height: 50px;
+  padding: 14px 18px;
+  font-size: 20px;
+  line-height: 20px;
+  color: #15d18f;
+  background-color: transparent;
+  border-color: #15d18f;
+  margin: 0 auto 60px;
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 100px;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+}

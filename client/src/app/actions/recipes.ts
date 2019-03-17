@@ -118,7 +118,6 @@ const loading: ActionCreator<IRecipesIsFetchingAction> = () => ({
 export const getRecipes: ActionCreator<ThunkAction<Promise<AnyAction>, IRecipesState, null, IRecipesGetAllAction>> = (
   after: string
 ) => {
-  console.log("TCL: after", after);
   return async (dispatch: Dispatch) => {
     dispatch(loading());
     const { data: items, paging } = await getRecipesFromAPI(after);

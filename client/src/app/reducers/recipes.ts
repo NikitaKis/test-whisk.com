@@ -4,6 +4,7 @@ import { IRecipesState, RecipesActions, RecipesActionTypes } from "../types/Reci
 
 const initialProductState: IRecipesState = {
   items: [],
+  nextPage: null,
   isFetching: false,
   details: {
     isFetching: false,
@@ -20,9 +21,16 @@ export const recipeReducer: Reducer<IRecipesState, RecipesActions> = (state = in
       };
     }
     case RecipesActionTypes.GET_ALL: {
+      let nextPage = null;
+      try {
+        if (action.paging.cursors) nextPage = action.paging.cursors.after;
+      } catch (e) {
+        nextPage = null;
+      }
       return {
         ...state,
-        items: action.items,
+        nextPage,
+        items: [...state.items, ...action.items],
         isFetching: false
       };
     }
