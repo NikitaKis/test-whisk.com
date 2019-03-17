@@ -19,7 +19,6 @@ export const getRecipesFromAPI = async (after: string): Promise<{ data: IRecipe[
     pathWithQuery += `&after=${after}`;
   }
   const url = "https://ayijkoz9n4.execute-api.eu-west-1.amazonaws.com/dev/recipes/search" + pathWithQuery;
-  console.log("TCL: url", url);
   const response = await fetch(url);
   const json = await response.json();
   return json;

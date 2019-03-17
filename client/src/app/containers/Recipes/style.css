@@ -309,11 +309,12 @@ body {
   display: flex;
 }
 
-.recipe_page_image {
+.recipe_page_image img {
   margin-bottom: 20px;
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  width: 100%;
 }
 
 @media (min-width: 700px) {
