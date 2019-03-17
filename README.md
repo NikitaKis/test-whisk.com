@@ -11,14 +11,15 @@
 > - Организация верстки и поддержка мобильных устройств.
 > - Желательно не использовать различные boilerplate'ы.
 
-Что не так важно:
-- Система сборки.
-- CSS-процессор.
-- Внешний вид сайта (цвета, границы и прочее).
+> Что не так важно:
+> - Система сборки.
+> - CSS-процессор.
+> - Внешний вид сайта (цвета, границы и прочее).
 
 ## Решение
 
 ### Server 
 Folder server. Proxy server for whisk api. Build on [serverless](https://serverless.com/) framework with Amazon AWS services.
 You need to define 'profiles' in serverless.yml and to make var.yml with dev: TOKEN: '...whisk token'
-deploy: serverless deploy -v
+
+**deploy**: serverless deploy -v
