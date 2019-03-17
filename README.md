@@ -15,3 +15,5 @@ React, Redux, TypeScript test app for whisk.com
 - Система сборки.
 - CSS-процессор.
 - Внешний вид сайта (цвета, границы и прочее).
+
+
