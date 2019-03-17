@@ -6,6 +6,7 @@ import { getRecipe } from "app/actions";
 import { IRecipeDetails } from "app/types/RecipeTypes";
 import { IRootState } from "app/reducers";
 
+
 const getRecipeDetailsById = (state: IRootState, id: string | null): IRecipeDetails | undefined => {
   let res;
   if (!id) return res;
@@ -57,7 +58,9 @@ const mapStateToProps = (state: IRootState, ownProps: any) => {
     ({ id } = ownProps.match.params);
   } catch (e) {
     id = null;
+		
   }
+  
   return {
     isFetching: state.recipes.details.isFetching,
     recipe: getRecipeDetailsById(state, id)

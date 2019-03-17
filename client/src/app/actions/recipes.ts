@@ -44,6 +44,7 @@ export const getRecipes: ActionCreator<ThunkAction<Promise<AnyAction>, IRecipesS
 ) => {
   return async (dispatch: Dispatch) => {
     dispatch(loadingAll());
+    // TODO make check if this after has already loaded
     const { data: items, paging } = await getRecipesFromAPI(after);
     return dispatch({
       items,
