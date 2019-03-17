@@ -7,11 +7,18 @@ provider:
   stage: dev
   environment: ${self:custom.${opt:stage, self:provider.stage}}
 functions:
-  hello:
+  recipes_search:
     handler: handler.recipes_search
     events:
     - http:
         path: recipes/search
+        method: get
+        cors: true
+  recipe:
+    handler: handler.recipe
+    events:
+    - http:
+        path: recipe
         method: get
         cors: true
 profiles:
