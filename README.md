@@ -26,3 +26,4 @@ You need to define 'profiles' in serverless.yml and to make var.yml with dev: TO
 
 ### Client
 Folder **client**.
+**deploy**: yarn run deploy. This will create js, css, index, then upload them to s3 bucket and invalidate cloudfront distribution.
