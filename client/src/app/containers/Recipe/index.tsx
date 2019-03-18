@@ -58,7 +58,6 @@ const mapStateToProps = (state: IRootState, ownProps: any) => {
     ({ id } = ownProps.match.params);
   } catch (e) {
     id = null;
-		
   }
   
   return {

@@ -10,7 +10,6 @@ interface IProps {
 
 const Recipe: React.FC<IProps> = ({ recipe }) => {
   if (!recipe) return null;
-  console.log("TCL: recipe", recipe);
   const { name, images, ingredients, instructions, description } = recipe;
   return (
     <React.Fragment>

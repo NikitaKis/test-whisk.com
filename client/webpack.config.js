@@ -18,6 +18,7 @@ module.exports = {
     app: './main.tsx'
   },
   output: {
+    publicPath: '/',
     path: outPath,
     filename: isProduction ? '[contenthash].js' : '[hash].js',
     chunkFilename: isProduction ? '[name].[contenthash].js' : '[name].[hash].js'
