@@ -3,7 +3,7 @@
 ## Задание
 > Суть задачи: нужно сделать сайт, содержащий две страницы:
 > - Главная, на которой будет постраничная выдача списка рецептов (пример того, как может выглядеть страница: https://recipes.whisk.com/>feed). Выведи изображение и имя рецепта. API который потребуется: http://developers.whisk.com/docs/recipes/search.
->- Страница рецепта, на которую можно перейти с главной страницы (пример того, как может выглядеть страница: https://recipes.whisk.com/>recipes/from-partners?recommendation=trending&>url=http%3A%2F%2Fwww.deliciousmagazine.co.uk%2Frecipes%2Fclassic-ragu-and-mozzarella-pasta-bake%2F&viewSource=Recipe+feed). Выведи >изображение, имя рецепта, ингредиенты и инструкции по приготовлению. API который потребуется: http://developers.whisk.com/docs/recipes/get.
+>- Страница рецепта, на которую можно перейти с главной страницы (пример того, как может выглядеть страница: [https://recipes.whisk.com/recipes/from-partners?recommendation=trending&url=http%3A%2F%2Fwww.deliciousmagazine.co.uk%2Frecipes%2Fclassic-ragu-and-mozzarella-pasta-bake%2F&viewSource=Recipe+feed](https://recipes.whisk.com/recipes/from-partners?url=http%3A%2F%2Fwww.foodnetwork.co.uk%2Frecipes%2Fchipotle-mango-barbecue-chicken.html&viewSource=Recipe+feed)). Выведи >изображение, имя рецепта, ингредиенты и инструкции по приготовлению. API который потребуется: http://developers.whisk.com/docs/recipes/get.
 
 > На что уделить внимание:
 > - В проекте должны быть использованы React, Redux, TypeScript. Все остальное опционально.
