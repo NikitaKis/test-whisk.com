@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as style from "./style.css";
+import { hot } from 'react-hot-loader/root';
 import { connect } from "react-redux";
 import { RouteComponentProps, withRouter } from "react-router";
 import { getRecipes } from "app/actions";
@@ -52,7 +53,7 @@ const mapDispatchToProps = (dispatch: any) => {
     getRecipes: (after: string) => dispatch(getRecipes(after))
   };
 };
-export default connect(
+export default hot(connect(
   mapStateToProps,
   mapDispatchToProps
-)(withRouter(RecipesPage));
+)(withRouter(RecipesPage)));

@@ -16,7 +16,10 @@ export interface IRecipeDetails {
   };
   language: string;
   instructions?: {
-    steps?: [];
+    steps: Array<{
+      images: [],
+      text: string;
+    }>;
   };
 }
 export interface IRecipe {
