@@ -28,13 +28,22 @@ body {
   margin-right: auto;
   margin-left: auto;
 }
+
 .app_container h1 {
   padding-left: 15px;
 }
 
+@media (max-width: 550px) {
+  .app_container {
+    
+    display: flex;
+    justify-content: center;
+  }
+}
+
 @media (min-width: 550px) {
   .app_container {
-    width: 510px
+    width: 510px;
   }
 }
 
