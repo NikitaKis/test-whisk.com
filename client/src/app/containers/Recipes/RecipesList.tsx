@@ -10,9 +10,11 @@ interface IProps {
 const RecipesList: React.FC<IProps> = props => {
   const { recipes } = props;
   return (
+    <div className={style.app_container}>
     <div className={style.feed_list}>
       {recipes &&
         recipes.map(recipe => <RecipesListItem key={recipe.content.id} recipe={recipe} />)}
+    </div>
     </div>
   );
 };

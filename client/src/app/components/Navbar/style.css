@@ -1,0 +1,83 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: white;
+  display: flex;
+  font-family: sans-serif;
+  color: white;
+  height: 58px;
+}
+
+.navbar_link {
+  margin: 0 14px;
+}
+.navbar_link a {
+  text-decoration: none;
+}
+
+.navbar_link_brand {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 17px;
+  color: #292b2b;
+  font-size: 20px;
+  line-height: 18px;
+  border-bottom: 3px solid transparent;
+  outline: none;
+  cursor: pointer;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.navbar_items {
+  display: flex;
+  flex: 1;
+  padding-top: 20px;
+  padding-bottom: 17px;
+  color: #292b2b;
+  font-size: 15px;
+  line-height: 18px;
+  border-bottom: 3px solid transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.navbar_items_right {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 17px;
+  color: #292b2b;
+  font-size: 15px;
+  line-height: 18px;
+  border-bottom: 3px solid transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.navbar_link_toggle {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar_items, .navbar {
+    flex-direction: column;
+  }
+  .navbar_items {
+    display: none;
+  }
+  .navbar_items_right {
+    margin-left: 0;
+  }
+  .navbar_toggleShow {
+    display: flex;
+  }
+  .navbar_link_toggle {
+    align-self: flex-end;
+    display: initial;
+    position: absolute;
+    cursor: pointer;
+  }
+}

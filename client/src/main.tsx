@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import RecipesPage from "app/containers/Recipes";
 import RecipePage from "app/containers/Recipe";
+import { Navbar } from "app/components";
 import NotFoundPage from "app/NotFoundPage";
 import { configureStore } from "app/store";
 
@@ -12,6 +13,7 @@ const store = configureStore();
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
+      <Navbar />
       <Switch>
         <Redirect exact from="/" to="/recipes" />
         <Route path="/recipes/:id" component={RecipePage} />

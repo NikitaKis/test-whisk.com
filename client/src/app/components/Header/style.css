@@ -1,0 +1,23 @@
+    .header_container {
+      position: relative;
+      margin-top: -20px;
+    }
+
+    .header_container h1 {
+      text-align: center;
+      color: white;
+      padding: 250px;
+    }
+
+    .background_header {
+      background-image: url(/assets/images/whisk_poster.jpg);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      overflow: hidden;
+      background-position: 30% top;
+      background-size: cover;
+    }
