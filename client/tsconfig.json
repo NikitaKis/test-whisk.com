@@ -16,7 +16,7 @@
     "baseUrl": "src",
     "paths": {
       "app/*": ["./app/*"]
-    }
+    },
   },
   "exclude": ["build", "node_modules"]
 }
