@@ -27,12 +27,14 @@ export const recipeReducer: Reducer<IRecipesState, RecipesActions> = (state = in
         nextPage = null;
       }
       const items = [...state.items];
+
       action.items.forEach(item => {
-        const alreadyExisted = items.find(stateItem => stateItem.content.id === item.content.id)
+        const alreadyExisted = items.find(stateItem => stateItem.content.id === item.content.id);
+        // Avoid doubles from items
         if (!alreadyExisted) {
-          items.push(item)
+          items.push(item);
         }
-      })
+      });
       return {
         ...state,
         nextPage,
