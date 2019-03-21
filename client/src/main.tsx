@@ -10,17 +10,25 @@ import { configureStore } from "app/store";
 
 const store = configureStore();
 
-ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <Navbar />
-      <Switch>
-        <Redirect exact from="/" to="/recipes" />
-        <Route path="/recipes/:id" component={RecipePage} />
-        <Route exact path="/recipes" component={RecipesPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById("root")
-);
+const renderApp = () =>
+  ReactDOM.render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Redirect exact from="/" to="/recipes" />
+          <Route path="/recipes/:id" component={RecipePage} />
+          <Route exact path="/recipes" component={RecipesPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </BrowserRouter>
+    </Provider>,
+    document.getElementById("root")
+  );
+renderApp();
+
+if (module.hot) {
+  module.hot.accept(() => {
+    renderApp();
+  });
+}

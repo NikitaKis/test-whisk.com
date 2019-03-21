@@ -1,5 +1,4 @@
 import * as React from "react";
-import { hot } from "react-hot-loader/root";
 import { IRecipeDetails } from "app/types/RecipeTypes";
 import { WithLoader } from "app/components/WithLoader";
 import * as style from "./style.css";
@@ -43,10 +42,7 @@ const Recipe: React.FC<IProps> = ({ recipe }) => {
                 {instructions &&
                   instructions.steps &&
                   instructions.steps.map(item => (
-                    <li
-                      className={style.recipe_instructions_item}
-                      key={item.text}
-                    >
+                    <li className={style.recipe_instructions_item} key={item.text}>
                       {item.text}
                     </li>
                   ))}
@@ -58,4 +54,4 @@ const Recipe: React.FC<IProps> = ({ recipe }) => {
     </React.Fragment>
   );
 };
-export default hot(WithLoader(Recipe));
+export default WithLoader(Recipe);

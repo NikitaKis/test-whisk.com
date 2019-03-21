@@ -1,5 +1,4 @@
 import * as React from "react";
-import { hot } from "react-hot-loader/root";
 import { connect } from "react-redux";
 import { RouteComponentProps, withRouter } from "react-router";
 import { getRecipes } from "app/actions";
@@ -17,7 +16,6 @@ interface RecipesPageProps extends RouteComponentProps<void> {
 }
 
 class RecipesPage extends React.Component<RecipesPageProps> {
-
   public componentDidMount() {
     const { recipes, isFetching } = this.props;
     if (recipes.length === 0 && !isFetching) this.props.getRecipes();
@@ -32,10 +30,7 @@ class RecipesPage extends React.Component<RecipesPageProps> {
       <div>
         <Header />
         <RecipesList recipes={recipes} />
-        <BtnWithLoader
-          isFetching={isFetching}
-          handleClick={this.handleShowMore}
-        />
+        <BtnWithLoader isFetching={isFetching} handleClick={this.handleShowMore} />
       </div>
     );
   }
@@ -53,9 +48,7 @@ const mapDispatchToProps = (dispatch: any) => {
     getRecipes: (after: string) => dispatch(getRecipes(after))
   };
 };
-export default hot(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(withRouter(RecipesPage))
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(RecipesPage));
