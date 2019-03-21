@@ -17,7 +17,7 @@ export interface IRecipeDetails {
   language: string;
   instructions?: {
     steps: Array<{
-      images: [],
+      images: [];
       text: string;
     }>;
   };

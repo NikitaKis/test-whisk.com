@@ -18,7 +18,9 @@ const RecipesListItem: React.FC<IProps> = ({ recipe }) => {
           </div>
           <div className={style.recipe_card_content}>
             <div className={style.recipe_card_title}>{name}</div>
-            <div className={style.recipe_card_subtitle}>{author && author.name}</div>
+            <div className={style.recipe_card_subtitle}>
+              {author && author.name}
+            </div>
           </div>
         </Link>
       </div>

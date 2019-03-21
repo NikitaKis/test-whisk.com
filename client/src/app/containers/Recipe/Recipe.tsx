@@ -43,7 +43,10 @@ const Recipe: React.FC<IProps> = ({ recipe }) => {
                 {instructions &&
                   instructions.steps &&
                   instructions.steps.map(item => (
-                    <li className={style.recipe_instructions_item} key={item.text}>
+                    <li
+                      className={style.recipe_instructions_item}
+                      key={item.text}
+                    >
                       {item.text}
                     </li>
                   ))}

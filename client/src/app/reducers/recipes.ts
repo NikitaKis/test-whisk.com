@@ -1,6 +1,10 @@
 import { Reducer } from "redux";
 
-import { IRecipesState, RecipesActions, RecipesActionTypes } from "../types/RecipeTypes";
+import {
+  IRecipesState,
+  RecipesActions,
+  RecipesActionTypes
+} from "../types/RecipeTypes";
 
 const initialProductState: IRecipesState = {
   items: [],
@@ -11,7 +15,10 @@ const initialProductState: IRecipesState = {
     byId: {}
   }
 };
-export const recipeReducer: Reducer<IRecipesState, RecipesActions> = (state = initialProductState, action) => {
+export const recipeReducer: Reducer<IRecipesState, RecipesActions> = (
+  state = initialProductState,
+  action
+) => {
   switch (action.type) {
     case RecipesActionTypes.IS_FETCHING: {
       return {
@@ -29,7 +36,9 @@ export const recipeReducer: Reducer<IRecipesState, RecipesActions> = (state = in
       const items = [...state.items];
 
       action.items.forEach(item => {
-        const alreadyExisted = items.find(stateItem => stateItem.content.id === item.content.id);
+        const alreadyExisted = items.find(
+          stateItem => stateItem.content.id === item.content.id
+        );
         // Avoid doubles from items
         if (!alreadyExisted) {
           items.push(item);

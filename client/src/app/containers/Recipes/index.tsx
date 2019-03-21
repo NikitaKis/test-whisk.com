@@ -17,9 +17,6 @@ interface RecipesPageProps extends RouteComponentProps<void> {
 }
 
 class RecipesPage extends React.Component<RecipesPageProps> {
-  constructor(props: RecipesPageProps, context?: any) {
-    super(props, context);
-  }
 
   public componentDidMount() {
     const { recipes, isFetching } = this.props;
@@ -35,19 +32,22 @@ class RecipesPage extends React.Component<RecipesPageProps> {
       <div>
         <Header />
         <RecipesList recipes={recipes} />
-        <BtnWithLoader isFetching={isFetching} handleClick={this.handleShowMore} />
+        <BtnWithLoader
+          isFetching={isFetching}
+          handleClick={this.handleShowMore}
+        />
       </div>
     );
   }
 }
-function mapStateToProps(state: IRootState) {
+const mapStateToProps = (state: IRootState) => {
   const { recipes } = state;
   return {
     isFetching: recipes.isFetching,
     recipes: recipes.items,
     nextPage: recipes.nextPage
   };
-}
+};
 const mapDispatchToProps = (dispatch: any) => {
   return {
     getRecipes: (after: string) => dispatch(getRecipes(after))

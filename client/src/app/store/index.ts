@@ -4,11 +4,16 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import { IRootState, rootReducer } from "app/reducers";
 
-export function configureStore(initialState?: IRootState): Store<IRootState> {
-
+export const configureStore = (
+  initialState?: IRootState
+): Store<IRootState> => {
   const middleware = [thunk, logger];
   const enhancer = composeWithDevTools(applyMiddleware(...middleware));
-  const store = createStore(rootReducer as any, initialState as any, enhancer) as Store<IRootState>;
+  const store = createStore(
+    rootReducer as any,
+    initialState as any,
+    enhancer
+  ) as Store<IRootState>;
 
   if (module.hot) {
     module.hot.accept("app/reducers", () => {
@@ -18,4 +23,4 @@ export function configureStore(initialState?: IRootState): Store<IRootState> {
   }
 
   return store;
-}
+};
