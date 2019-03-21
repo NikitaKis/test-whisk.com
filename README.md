@@ -21,7 +21,9 @@
 Working site [demo](https://d2pij3t8t5d93.cloudfront.net)
 
 ### Server 
-Folder **server**. Proxy server for whisk api. Build on [serverless](https://serverless.com/) framework with Amazon AWS services.
+Folder **server**.
+
+Proxy server for whisk api. Build on [serverless](https://serverless.com/) framework with Amazon AWS services.
 You need to define 'profiles' in serverless.yml and to make var.yml with dev: TOKEN: '...whisk token'
 
 **deploy**: serverless deploy -v
