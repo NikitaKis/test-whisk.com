@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 interface IProps {}
 
-export const Navbar: React.FC<IProps> = props => (
+export const Navbar: React.FC<IProps> = React.memo(props => (
   <div className={style.navbar}>
     <div className={style.navbar_link_brand}>Whisk</div>
     <div className={style.navbar_link_toggle}>
@@ -22,4 +22,4 @@ export const Navbar: React.FC<IProps> = props => (
       <div className={style.navbar_link}>LogIn</div>
     </nav>
   </div>
-);
+));

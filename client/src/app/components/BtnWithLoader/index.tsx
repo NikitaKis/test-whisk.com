@@ -6,13 +6,12 @@ interface IProps {
   handleClick: () => void;
 }
 
-const BtnWithLoader: React.FC<IProps> = props => {
-  const { handleClick } = props;
+const BtnWithLoader: React.FC<IProps> = React.memo(({ handleClick }) => {
   return (
     <button onClick={handleClick} className={style.button}>
       Show more recipes
     </button>
   );
-};
+});
 
 export default WithLoader(BtnWithLoader);
